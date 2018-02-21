@@ -23,7 +23,7 @@ function render (wd, cel) {
   $("#location").html(currentLocation);
   $("#temperature").html(currentTemp);
   $("#condition").html(currentWeather);
-  var iconSrc = 'http://openweathermap.org/img/w/' + icon + '.png';
+  var iconSrc = 'https://openweathermap.org/img/w/' + icon + '.png';
   $("#location").prepend('<img src="' + iconSrc + '">');
 
 // Set up video selection based on weather weatherCode
@@ -114,13 +114,13 @@ $("#myVideo").attr("src",videos[weatherCode]);
 $(function (){
   var loc;
 // get user ip to determine location
-  $.getJSON("http://ipinfo.io", function(d){
+  $.getJSON("https://ipinfo.io", function(d){
     console.log(d);
     //crete new array with 2 parameters long+lat to put into GetJSON
     loc = d.loc.split(",");
     console.log(loc);
 
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?units=imperial&lat="
+    $.getJSON("https://api.openweathermap.org/data/2.5/weather?units=imperial&lat="
               + loc[0] + "&lon=" + loc[1] +"&APPID=" + API_KEY,
     function(apiData){
       //wd = weather data
